@@ -7,8 +7,8 @@ const startServer = async () => {
   const server = new ApolloServer({ typeDefs, resolvers });
   await mongoose.connect('mongodb+srv://Thehoang12:Thehoang12@cluster0.xuqql.mongodb.net/book?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
-  server.listen().then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
+  server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+    console.log(`🚀 Server ready at ${url}`);
   });
 }
 
